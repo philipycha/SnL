@@ -53,7 +53,7 @@
     
     Board *home = [[Board alloc] initWithContent:nil];
     
-    home.currentSpace = 1;
+    home.currentSpace = 0;
     Board *spaceCursor = home;
     Board *previousSpace;
     

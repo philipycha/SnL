@@ -37,6 +37,16 @@
     
     NSLog(@"reach %d to win!", self.boardSize);
     
+    while (self.player1.currentPosition.currentSpace != self.boardSize && self.player2.currentPosition.currentSpace != self.boardSize) {
+        [self roll:self.player1];
+        [self printCurrentPosition];
+        
+        [self roll:self.player2];
+        [self printCurrentPosition];
+        
+       
+    }
+    
 }
 
 - (Board *)generateBoard {
@@ -63,6 +73,54 @@
     
 }
 
+-(void)printCurrentPosition{
+    
+    NSLog(@"Player 1's current position is %d", self.player1.currentPosition.currentSpace);
+    NSLog(@"Player 2's current position is %d", self.player2.currentPosition.currentSpace);
+    
+}
+
+-(void)roll:(Player *)player{
+    
+    InputController *inputController = [InputController new];
+    
+    while (YES) {
+        NSString *roll = [inputController inputForPrompt:@"What number from 1 - 6 would you like to roll?"];
+        
+        int diceRoll;
+        if ([roll isEqualToString:@"1"]) {
+            diceRoll = 1;
+        } else if ([roll isEqualToString:@"2"]){
+            diceRoll = 2;
+        } else if ([roll isEqualToString:@"3"]){
+            diceRoll = 3;
+        } else if ([roll isEqualToString:@"4"]){
+            diceRoll = 4;
+        } else if ([roll isEqualToString:@"5"]){
+            diceRoll = 5;
+        } else if ([roll isEqualToString:@"6"]){
+            diceRoll = 6;
+        } else {
+            NSLog(@"Please enter a number between 1 - 6!\n");
+        }
+        if (diceRoll) {
+            [self movePlayer:player withRoll:diceRoll];
+            break;
+        }
+    }
+    
+}
+
+-(void)movePlayer:(Player *)player withRoll:(int)diceRoll{
+    
+    for (int i = 0; i < diceRoll; i++) {
+        if (player.currentPosition.nextSpace) {
+            player.currentPosition = player.currentPosition.nextSpace;
+        }
+    }
+    
+    
+}
 
 
 

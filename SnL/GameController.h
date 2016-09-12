@@ -33,5 +33,7 @@ typedef NS_ENUM(NSInteger, Difficulty) {
 -(void)printCurrentPosition;
 -(void)roll:(Player *)player;
 -(void)movePlayer:(Player *)player withRoll:(int)diceRoll;
+-(void)lineSpace;
+
 
 @end

@@ -105,6 +105,7 @@
         }
         if (diceRoll) {
             [self movePlayer:player withRoll:diceRoll];
+            [self lineSpace];
             break;
         }
     }
@@ -121,6 +122,13 @@
     
     
 }
+
+-(void)lineSpace {
+    
+    return NSLog(@"----------------------------------------------------");
+    
+}
+
 
 
 

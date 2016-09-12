@@ -17,7 +17,7 @@ int main(int argc, const char * argv[]) {
         
         NSString *boardSizeString = [inputController inputForPrompt:@"Choose your board size!"];
         
-        NSString *difficultyString = [inputController inputForPrompt:@"Choose a difficulty 'e' - easy\n'm' - medium\n'h' - hard"];
+        NSString *difficultyString = [inputController inputForPrompt:@"Choose a difficulty\n'e' - easy\n'm' - medium\n'h' - hard"];
         
         int boardSize = [boardSizeString intValue];
         

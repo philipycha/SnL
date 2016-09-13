@@ -13,7 +13,7 @@
 -(void)movePlayer:(Player *)player {
     
     for (int i = 0; i < self.space; i++)
-        player.currentPosition = player.currentPosition.nextSpace;
+        player.currentPosition = player.currentPosition.previousSpace;
 }
 
 

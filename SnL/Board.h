@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @class BoardType;
+@class Player;
 
 @interface Board : NSObject
 
@@ -16,6 +17,9 @@
 @property (nonatomic, strong) Board *nextSpace;
 @property (nonatomic, strong) Board *previousSpace;
 @property (nonatomic, assign) int currentSpace;
+
+
+-(void)movePlayer:(Player *)player;
 
 - (instancetype)initWithContent:(BoardType *)type;
 

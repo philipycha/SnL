@@ -63,6 +63,28 @@
         
         spaceCursor.nextSpace.currentSpace = i + 1;
         previousSpace = spaceCursor;
+        
+        
+        //        float probability = difficulty * 2.0;
+        float probability = 10;
+        
+        if (arc4random_uniform(50) < probability) {
+            
+            Snake *snake = [[Snake alloc] init];
+            
+//            snake.howFarToSlide = arc4random_uniform(10);
+            spaceCursor.type = snake;
+        }
+        
+        
+        if (spaceCursor.type == nil && arc4random_uniform(50) < probability) {
+            Ladder *ladder = [[Ladder alloc] init];
+            spaceCursor.type = ladder;
+        } else {
+            spaceCursor.type = [[BoardType alloc] init];
+        }
+        
+        
         spaceCursor = spaceCursor.nextSpace;
         spaceCursor.previousSpace = previousSpace;
         
@@ -120,6 +142,8 @@
         }
     }
     
+    
+    [player.currentPosition.type movePlayer:player];
     
 }
 

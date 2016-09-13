@@ -8,6 +8,7 @@
 
 #import "Board.h"
 
+
 @implementation Board
 
 - (instancetype)initWithContent:(BoardType *)type {
@@ -16,6 +17,11 @@
         _type = type;
     }
     return self;
+}
+
+
+-(void)movePlayer:(Player *)player {
+    
 }
 
 
